@@ -10,3 +10,6 @@ config.codekit
 # Grunt
 /node_modules/
 npm-debug.log
+
+# Styles
+/*.css
