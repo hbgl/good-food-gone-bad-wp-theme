@@ -83,7 +83,7 @@ class Deli {
 	 * @return void
 	 */
 	public function enqueue_styles() {
-		global $storefront_version;
+		global $storefront_version, $deli_version;
 
 		wp_enqueue_style( 'storefront-style', get_template_directory_uri() . '/style.css', $storefront_version );
 	}
@@ -93,6 +93,7 @@ class Deli {
 	 * @return void
 	 */
 	public function enqueue_child_styles() {
+		global $deli_version;
 		/**
 		 * Styles
 		 */
@@ -101,6 +102,8 @@ class Deli {
 		wp_enqueue_style( 'anonymous-pro', '//fonts.googleapis.com/css?family=Anonymous+Pro:400,400italic,700', array( 'storefront-child-style' ) );
 		wp_enqueue_style( 'kalam', '//fonts.googleapis.com/css?family=Kalam:400,700', array( 'storefront-child-style' ) );
 		wp_enqueue_style( 'oswald', '//fonts.googleapis.com/css?family=Oswald', array( 'storefront-child-style' ) );
+		wp_enqueue_style( 'gfgb-deli-style', get_stylesheet_directory_uri() . '/bootstrap.css', $deli_version );
+		wp_enqueue_style( 'gfgb-bootstrap-style', get_stylesheet_directory_uri() . '/gfgb.css', $deli_version );
 	}
 
 	/**

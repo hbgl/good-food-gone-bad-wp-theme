@@ -9,11 +9,13 @@ module.exports = function( grunt ) {
 				options: {
 					require: 'susy',
 					sourcemap: 'none',
-					includePaths: ['node_modules/susy/sass'].concat( require( 'node-bourbon' ).includePaths )
+					includePaths: ['node_modules/susy/sass', 'node_modules'].concat( require( 'node-bourbon' ).includePaths )
 				},
 				files: [{
 					'style.css': 'style.scss',
 					'style-editor.css': 'style-editor.scss',
+					'bootstrap.css': 'bootstrap.scss',
+					'gfgb.css': 'gfgb.scss',
 				}]
 			}
 		},
@@ -23,7 +25,9 @@ module.exports = function( grunt ) {
 			css: {
 				files: [
 					'style.scss',
-					'style-editor.css'
+					'style-editor.css',
+					'bootstrap.scss',
+					'gfgb.scss',
 				],
 				tasks: [
 					'sass'

@@ -1,0 +1,61 @@
+/**
+ * Deli theme customizations.
+ */
+
+ .storefront-breadcrumb {
+    margin-bottom: 0 !important;
+}
+
+.woocommerce-breadcrumb {
+    margin-bottom: 0 !important;
+}
+
+.deli-primary-navigation {
+    margin-bottom: 0 !important;
+}
+
+#order_review_heading {
+    width: 100%;
+}
+
+#site-navigation {
+    margin-right: 0;
+    width: 77%;
+}
+
+#menu-main {
+    float: none;
+    display: flex;
+
+    .menu-item:last-child {
+        margin-left: auto;
+        border-right: none;
+    }
+}
+
+.woocommerce-mini-cart__total strong {
+    font-weight: normal;
+}
+
+.site-header {
+    margin-bottom: 1rem !important;
+}
+
+.storefront-breadcrumb {
+    padding: 0;
+    margin: 1rem 0 !important;
+}
+
+@media (max-width: 767px) {
+    .storefront-breadcrumb {
+        padding-left: 1.618em;
+    }
+
+    body:not(.page-template-template-homepage) .site-main {
+        padding: 0.618em;
+    }
+
+    #site-navigation {
+        width: 100%;
+    }
+}
