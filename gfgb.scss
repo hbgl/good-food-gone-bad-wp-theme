@@ -2,7 +2,7 @@
  * Deli theme customizations.
  */
 
- .storefront-breadcrumb {
+.storefront-breadcrumb {
     margin-bottom: 0 !important;
 }
 
@@ -57,5 +57,74 @@
 
     #site-navigation {
         width: 100%;
+    }
+}
+
+/**
+ * Quiz
+ */
+
+#quizzContainer {
+    z-index: 2;
+}
+
+.pdarkblue {
+    // background-color: #555B6E !important;
+}
+
+.quizzcard {
+    // background-color: #89B0AE;
+    max-height: 1000px;
+}
+
+#cancleQuizzButton {
+    height: 30px;
+    width: auto;
+}
+
+#cancleQuizzButton,
+#quizzLeftArrow,
+#quizzRightArrow,
+[id^="contentAnswer"] {
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+#footer {
+    position: fixed;
+    bottom: 0;
+
+
+}
+
+#answerImage {
+    max-height: 250px;
+}
+
+.answerImage3_6 {
+    max-height: 200px;
+}
+
+#answer1Image {
+    max-height: 800px;
+}
+
+#searchbutton {
+    height: 60px;
+    width: 60px;
+    background-color: #89B0AE;
+}
+
+#searchbuttonImage {
+    width: 60%;
+    height: auto;
+}
+
+@media (min-width:960px) {
+    #searchbutton {
+        height: 90px;
+        width: 90px;
+        ;
     }
 }
