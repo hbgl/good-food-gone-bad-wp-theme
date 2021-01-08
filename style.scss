@@ -1336,7 +1336,7 @@ body:not(.page-template-template-homepage) .site-main {
 
 // Hide row that does not contain any content but causes the layout
 // to shift when checkout page is loaded.
-.form-row.place-order {
+.woocommerce-checkout-payment .form-row.place-order {
 	display: none;
 }
 
@@ -1361,4 +1361,8 @@ ul.products li.product .price {
 
 ul.products li.product .button {
     margin-top: 0.5rem;
+}
+
+select {
+	padding: 0.25rem;
 }
