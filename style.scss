@@ -20,6 +20,7 @@ Text Domain:	deli
 @import 'susy';
 @import '../storefront/assets/css/sass/utils/variables';
 @import '../storefront/assets/css/sass/vendors/font-awesome/variables';
+@import '../storefront/assets/css/sass/vendors/modular-scale';
 
 $orange: 	#b64902;
 $blue: 		#0e7784;
@@ -154,11 +155,13 @@ input[type="email"],
 input[type="url"],
 input[type="password"],
 input[type="search"],
+input[type="number"],
+input[type="tel"],
 .input-text {
 	border-radius: 0;
 	border: 2px dashed rgba(#000,.15);
 	padding-left: 1em;
-	background: #f6f6f6;
+	background: #fff;
 	color: #777;
 	box-shadow: none;
 }
@@ -1311,4 +1314,51 @@ body:not(.page-template-template-homepage) .site-main {
 @media screen and (min-width: 768px) {
 	.storefront-2-3 {
 	}
+}
+
+/**
+ * Customizations
+ */
+
+// Make "place order" buttons bigger like "continue to checkout" button but not full width.
+#place_order.button {
+	display: block;
+	text-align: center;
+	margin-bottom: 1em;
+	font-size: ms(2);
+}
+
+// Fix weird header placement.
+.page-template-template-fullwidth-php #order_review_heading {
+    width: 100%;
+    float: none;
+}
+
+// Hide row that does not contain any content but causes the layout
+// to shift when checkout page is loaded.
+.form-row.place-order {
+	display: none;
+}
+
+// Show links in additional information (shipping info link) inline so
+// it does not take up more space than it needs.
+.site-main ul.products li.product p.wc-gzd-additional-info {
+	a {
+		display: inline;
+	}
+}
+
+// Less margin for additional product info.
+
+ul.products li.product .price {
+    margin-bottom: 0.5rem;
+}
+
+.product p.wc-gzd-additional-info {
+	margin-bottom: .25rem;
+    margin-top: .25rem;
+}
+
+ul.products li.product .button {
+    margin-top: 0.5rem;
 }
