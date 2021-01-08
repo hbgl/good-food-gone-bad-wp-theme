@@ -80,14 +80,14 @@ function loadQuizz(quizzJsonObject) {
     if (index + 1 <= 2 && quizzJsonObject.answers.length > 2) { //the first 2 Answer
       switch (index + 1) {
         case 1:
-          $("#contentAnswer1").append(answer1Template);
+          $("#contentAnswer1").html(answer1Template);
           document.getElementById('answer01Image').src = quizzJsonObject.answers[index].image;
           document.getElementById('answer01Image').alt = quizzJsonObject.answers[index].altText;
           document.getElementById('answer01Image').onclick = function () { handleQuizzImageClick(quizzJsonObject.answers[index].nextQuestion); };
           break;
 
         case 2:
-          $("#contentAnswer2").append(answer2Template);
+          $("#contentAnswer2").html(answer2Template);
           document.getElementById('answerImage').src = quizzJsonObject.answers[index].image;
           document.getElementById('answerImage').alt = quizzJsonObject.answers[index].altText;
           document.getElementById('answerImage').onclick = function () { handleQuizzImageClick(quizzJsonObject.answers[index].nextQuestion); };
@@ -99,7 +99,7 @@ function loadQuizz(quizzJsonObject) {
       wrapper.classList.add("col-6", "mb-1", "p-1");
       $("#contentAnswer3_6").append(wrapper);
 
-      $(`#contentAnswer3_6${index - 1}`).append(answer36Template);
+      $(`#contentAnswer3_6${index - 1}`).html(answer36Template);
       console.log("try to set src image 3-6")
 
       var cont = document.getElementById("answer3_6Image");
@@ -115,7 +115,7 @@ function loadQuizz(quizzJsonObject) {
 }
 
 function loadTemplateIntoContainer() {
-  $("#quizzContainer").append(baseQuizzTemplate);
+  $("#quizzContainer").html(baseQuizzTemplate);
   loadQuizz(quizzData[currentQuizzData]);
 }
 
