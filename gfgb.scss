@@ -128,3 +128,17 @@
         ;
     }
 }
+
+/**
+ * Footer nav
+ */
+
+.site-footer {
+    .widget.widget_nav_menu {
+        .widget-title {
+            padding-bottom: 0;
+            margin-bottom: .75rem;
+            border-bottom: 1px solid rgba(0,0,0,.125);
+        }
+    }
+}
