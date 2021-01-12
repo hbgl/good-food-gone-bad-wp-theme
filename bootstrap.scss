@@ -19,9 +19,11 @@ $grid-breakpoints: (
     xl: map-get($grid-breakpoints, 'xl'),
 );
 
-@import 'bootstrap/scss/grid';
-@import 'bootstrap/scss/card';
-@import 'bootstrap/scss/utilities/spacing';
-@import 'bootstrap/scss/utilities/borders';
-@import 'bootstrap/scss/utilities/text';
-@import 'bootstrap/scss/utilities/visibility';
+.gfgbbs {
+    @import 'bootstrap/scss/grid';
+    @import 'bootstrap/scss/card';
+    @import 'bootstrap/scss/utilities/spacing';
+    @import 'bootstrap/scss/utilities/borders';
+    @import 'bootstrap/scss/utilities/text';
+    @import 'bootstrap/scss/utilities/visibility';
+}
