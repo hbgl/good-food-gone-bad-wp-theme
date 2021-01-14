@@ -30,6 +30,7 @@ class Deli {
 		add_filter( 'body_class', array( $this, 'body_classes' ) );
 		add_filter( 'widget_tag_cloud_args', array( $this, 'widged_tag_cloud_args' ) );
 		add_filter( 'woocommerce_product_tag_cloud_widget_args', array( $this, 'widget_tag_cloud_args' ) );
+		add_filter( 'storefront_privacy_policy_link', array( $this, 'storefront_privacy_policy_link' ) );
 
 		if ( defined( 'WC_VERSION' ) && version_compare( WC_VERSION, '3.3', '<' ) ) {
 			add_filter( 'storefront_loop_columns', array( $this, 'loop_columns' ) );
@@ -166,6 +167,10 @@ class Deli {
 	public function widget_tag_cloud_args( array $args ) {
 		$args['smallest'] = '9';
 		return $args;
+	}
+
+	public function storefront_privacy_policy_link() {
+		return false;
 	}
 }
 
