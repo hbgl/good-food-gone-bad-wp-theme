@@ -31,6 +31,7 @@ class Deli {
 		add_filter( 'widget_tag_cloud_args', array( $this, 'widged_tag_cloud_args' ) );
 		add_filter( 'woocommerce_product_tag_cloud_widget_args', array( $this, 'widget_tag_cloud_args' ) );
 		add_filter( 'storefront_privacy_policy_link', array( $this, 'storefront_privacy_policy_link' ) );
+		add_filter( 'get_the_archive_title_prefix', array( $this, 'get_the_archive_title_prefix') );
 
 		if ( defined( 'WC_VERSION' ) && version_compare( WC_VERSION, '3.3', '<' ) ) {
 			add_filter( 'storefront_loop_columns', array( $this, 'loop_columns' ) );
@@ -171,6 +172,13 @@ class Deli {
 
 	public function storefront_privacy_policy_link() {
 		return false;
+	}
+
+	public function get_the_archive_title_prefix($prefix) {
+		if (is_post_type_archive('food')) {
+			return '';
+		}
+		return $prefix;
 	}
 }
 

@@ -1,27 +1,21 @@
 <?php
 $col = $col ?? 'col-lg-4 col-xss-6';
 
+if (empty($children)) {
+    return;
+}
 ?>
 <div class="gfgbbs">
     <div class="container px-0">
         <div class="row">
-        <?php foreach ($entries as $entry): ?>
+        <?php foreach ($children as $child): ?>
             <?php
-            $term = $entry['term'];
+            $food = $child['food'];
             $image_src = null;
-            if (isset($entry['image_id']) && $entry['image_id']) {
-                $image_src = wp_get_attachment_image_src($entry['image_id'], 'medium');
+            if (isset($child['image_id']) && $child['image_id']) {
+                $image_src = wp_get_attachment_image_src($child['image_id'], 'medium');
             }
-            $link_href = null;
-            if ($entry['type'] === 'food_page') {
-                if (isset($entry['food_post'])) {
-                    $link_href = get_permalink($entry['food_post']);
-                }
-            } elseif ($entry['type'] === 'page') {
-                if (isset($entry['page_id']) && $entry['page_id'] > 0) {
-                    $link_href = get_permalink($entry['page_id']);
-                }
-            }
+            $link_href = get_permalink($food);
             ?>
             <div class="<?php echo esc_attr($col); ?> mb-3">
                 <div class="card">
@@ -29,7 +23,7 @@ $col = $col ?? 'col-lg-4 col-xss-6';
                         <?php if ($link_href): ?>
                             <a href="<?php echo esc_attr($link_href); ?>">
                         <?php endif; ?>
-                            <img class="card-img-top" src="<?php echo esc_attr($image_src[0]); ?>" alt="<?php echo esc_html($term->name); ?>">
+                            <img class="card-img-top" src="<?php echo esc_attr($image_src[0]); ?>" alt="<?php echo esc_html($food->post_title); ?>">
                         <?php if ($link_href): ?>
                             </a>
                         <?php endif; ?>
@@ -39,7 +33,7 @@ $col = $col ?? 'col-lg-4 col-xss-6';
                             <?php if ($link_href): ?>
                                 <a href="<?php echo esc_attr($link_href); ?>">
                             <?php endif; ?>
-                                <?php echo esc_html($term->name); ?>
+                                <?php echo esc_html($food->post_title); ?>
                             <?php if ($link_href): ?>
                                 </a>
                             <?php endif; ?>

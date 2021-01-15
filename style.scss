@@ -327,34 +327,32 @@ table tbody tr:nth-child(2n) td,
 	}
 }
 
-.hentry {
-	.entry-header {
-		border: 0;
-		position: relative;
+.archive .page-header, .hentry .entry-header {
+	border: 0;
+	position: relative;
 
-		h1 {
-			border-bottom-style: double;
-			border-bottom-width: 4px;
-			border-bottom-color: #ddd;
-			font-size: 2.618em;
-		}
+	h1 {
+		border-bottom-style: double;
+		border-bottom-width: 4px;
+		border-bottom-color: #ddd;
+		font-size: 2.618em;
+	}
 
-		&:after,
-		&:before {
-			content: "";
-			height: 4px;
-			width: 4px;
-			line-height: 1;
-			position: absolute;
-			bottom: 0px;
-			left: 0;
-			background: #ddd;
-		}
+	&:after,
+	&:before {
+		content: "";
+		height: 4px;
+		width: 4px;
+		line-height: 1;
+		position: absolute;
+		bottom: 0px;
+		left: 0;
+		background: #ddd;
+	}
 
-		&:after {
-			left: auto;
-			right: 0;
-		}
+	&:after {
+		left: auto;
+		right: 0;
 	}
 }
 
