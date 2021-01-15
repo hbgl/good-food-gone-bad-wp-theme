@@ -142,3 +142,73 @@
         }
     }
 }
+
+
+/**
+ * Branding
+ */
+
+@media (min-width: 768px) {
+    .storefront-secondary-navigation.woocommerce-active .site-header .site-branding {
+        width: 36.7391304348%;
+        float: left;
+        margin-right: 4.347826087%;
+    }
+
+    .storefront-secondary-navigation.woocommerce-active .site-header .secondary-navigation {
+        width: 32.8260869565%;
+        float: left;
+        margin-right: 4.347826087%;
+    }
+}
+
+.site-branding .site-description {
+    display: block;
+}
+
+/**
+ * WooCommerce
+ */
+
+.woocommerce-tabs .panel {
+    blockquote+h2, blockquote+h3, blockquote+h4, blockquote+header h2, form+h2, form+h3, form+h4, form+header h2, ol+h2, ol+h3, ol+h4, ol+header h2, p+h2, p+h3, p+h4, p+header h2, table+h2, table+h3, table+h4, table+header h2, ul+h2, ul+h3, ul+h4, ul+header h2 {
+        margin-top: 1.490684em;
+    }
+
+    h2 {
+        &, &:first-of-type {
+            font-size: 1.618em;
+            line-height: 1.214;
+            margin-bottom: 0.75rem;
+        }
+    }
+
+    h3 {
+        font-size: 1.418em;
+    }
+
+    h4 {
+        font-size: 1.21575em;
+    }
+}
+
+/**
+ * Utilities
+ */
+
+figure.fig-fluid {
+    img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/**
+ * Homepage
+ */
+.home.page-template-template-fullwidth .hentry .entry-content {
+    >.wp-block-cover, >.wp-block-image {
+        margin-bottom: 2.735801rem;
+    }
+}
