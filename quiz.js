@@ -3,6 +3,7 @@ var quizzData = [];
 // Pointer wich QuizzData is currently loaded
 var currentQuizzData = 0;
 
+var urlLinkTemplate = '<a href="" id="urlLink" onclick="cancelQuizz()">zur entsprechenden Information mich betätigen</a>';
 var answer1Template = '<img class="rounded" src="" alt="" style="width:100%; height:100%" id="answer01Image">';
 var answer2Template = '<div class="col p-1"><img class="rounded" src="" alt="" style="width:100%; height:100%" id="answerImage" ></div>';
 var answer36Template = '<img class="rounded" src="" alt="" style="width:100%; height:100%" id="answer3_6Image">';
@@ -17,7 +18,7 @@ var baseQuizzTemplate = `<div class="card quizzcard quizzContentBody">
     </div>
   </div>
 </div>
-<div class="card-body ">
+<div class="card-body" id="contentQuizBody">
   <div class="row mb-2">
     <div class="col" id="questionText">
     </div>
@@ -58,7 +59,7 @@ function handleSearchButtonClick() {
     var firstObjId = Object.keys(gfgbQuizz.questions)[0];
     quizzData[0] = gfgbQuizz.questions[firstObjId];
     loadTemplateIntoContainer();
-
+   
     document.getElementById('quizzContainer').style.display = 'block';
   } else {
     console.log("Quizz is already displaying");
@@ -158,24 +159,38 @@ function setArrowVisibility() {
 }
 
 function handleQuizzImageClick(nextQuestionId) {
+ if(nextQuestionId!=null){
+   //check if the next QuestionId an Endpoint
+    if (nextQuestionId.startsWith("#")) {
+      
+      //clear Body of the card and load an Link in it
+      document.getElementById("contentQuizBody").innerHTML="";
+      $("#contentQuizBody").html(urlLinkTemplate);
+     
+      //create an temporarily url string
+      var tempUrl= window.location.href;
+      tempUrl=tempUrl.split("#")[0];
+      tempUrl=tempUrl+nextQuestionId;
+     
+      //set the destination of the link
+      document.getElementById("urlLink").setAttribute("href",tempUrl);
+     
 
-  if (nextQuestionId === null) {
-    //load Site
-    console.log("Seite wird geladen");
-  } else {
-    //create new Temp Array and copy old Data until the current question
-    var tempArray = [];
-    for (var index = 0; index <= currentQuizzData; index++) {
-      tempArray[index] = quizzData[index];
+    } else {
+      //create new Temp Array and copy old Data until the current question
+      var tempArray = [];
+      for (var index = 0; index <= currentQuizzData; index++) {
+        tempArray[index] = quizzData[index];
+      }
+      quizzData = tempArray;
+      //add new Data
+      quizzData[quizzData.length] = gfgbQuizz.questions[parseInt(nextQuestionId)];
+      currentQuizzData = quizzData.length - 1;
+      // create Content
+      document.getElementById('quizzContainer').innerHTML = "";
+      loadTemplateIntoContainer();
     }
-    quizzData = tempArray;
-    //add new Data
-    quizzData[quizzData.length] = gfgbQuizz.questions[nextQuestionId];
-    currentQuizzData = quizzData.length - 1;
-    // create Content
-    document.getElementById('quizzContainer').innerHTML = "";
-    loadTemplateIntoContainer();
-  }
+  } 
 }
 
 function handleLeftArrowClick() {
