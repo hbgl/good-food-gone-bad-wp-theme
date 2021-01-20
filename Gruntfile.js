@@ -52,13 +52,36 @@ module.exports = function( grunt ) {
 					'style.css'
 				]
 			}
-		}
+		},
+
+		compress: {
+			main: {
+				options: {
+					archive: 'release/deli.zip',
+					level: 5,
+				},
+				files: [
+					{src: ['images/**']},
+					{src: ['inc/**']},
+					{src: ['languages/**']},
+					{src: ['shortcode/**']},
+					{src: ['*.php']},
+					{src: ['*.css']},
+					{src: ['quiz.js']},
+					{src: ['changelog.txt']},
+					{src: ['README.md']},
+					{src: ['readme.txt']},
+					{src: ['screenshot.png']},
+				],
+			},
+		},
 	});
 
 	// Load NPM tasks to be used here
 	grunt.loadNpmTasks( 'grunt-sass' );
 	grunt.loadNpmTasks( 'grunt-contrib-watch' );
 	grunt.loadNpmTasks( 'grunt-rtlcss' );
+	grunt.loadNpmTasks( 'grunt-contrib-compress' );
 
 	// Register tasks
 	grunt.registerTask( 'default', [
@@ -68,5 +91,10 @@ module.exports = function( grunt ) {
 	grunt.registerTask( 'css', [
 		'sass',
 		'rtlcss'
+	] );
+
+	grunt.registerTask( 'build', [
+		'css',
+		'compress',
 	] );
 };
