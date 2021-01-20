@@ -16,6 +16,6 @@ As **Deli** is a child theme of the Storefront theme, both [Storefront](https://
 
 **Deli** utilizes the following npm scripts for task management utilities:
 
-- `npm run build`: Creates `style.css` and `style-rtl.css` based on `style.scss`
+- `npm run build`: Creates a deployable Zip bundle.
 - `npm run css`: Creates `style.css` and `style-rtl.css` based on `style.scss`
 - `npm run watch`: Listens to changes in `style.scss` and creates `style.css` and `style-rtl.css` then
